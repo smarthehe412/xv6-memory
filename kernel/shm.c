@@ -65,7 +65,7 @@ int shm_detach(int id) {
 
 int shm_close(int id) {
     if(id < 0 || id >= MAXSHMPAGES || shm_table[id].id == -1 || shm_table[id].count != 0)
-        return -1;
+        return -1; //exception
     acquire(&shm_table_lock);
     kfree(shm_table[id].frame);
     release(&shm_table_lock);
