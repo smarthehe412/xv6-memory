@@ -3,6 +3,7 @@
 #include "memlayout.h"
 #include "riscv.h"
 #include "defs.h"
+#include "shm.h"
 
 volatile static int started = 0;
 
@@ -19,6 +20,7 @@ main()
     kinit();         // physical page allocator
     kvminit();       // create kernel page table
     kvminithart();   // turn on paging
+    shminit();       // shared pages table
     procinit();      // process table
     trapinit();      // trap vectors
     trapinithart();  // install kernel trap vector

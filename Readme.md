@@ -91,5 +91,3 @@ void *mm_realloc(void *ptr, size_t size);
 
 每个共享内存页记录物理内存地址，同时使用数量，拥有线程锁 spinlock，具体结构位于 `kernel/shm.h`。
 
-测试方法在 `user/shmtest.c`。
-
